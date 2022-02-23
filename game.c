@@ -24,7 +24,29 @@ void set_word_to_game(Game* game, char word[5]) {
 	}
 }
 
+Status check_word_at(Game* game, char word[5], int index) {
+	if (word[index] == game->word[index]) {
+		return RIGHT;
+	}
+	for (int i = 0; i < 5; i++) {
+		if (game->word[i] == word[index]) {
+			return MAYBE;
+		}
+	}
+	return WRONG;
+}
+
 int play_game(Game* game, char word[5]) {
+	for (int i = 0; i < 5; i++) {
+		game->statuses[game->attempts][i] = check_word_at(game, word, i);
+		game->matrix[game->attempts][i] = word[i];
+	}
+	// Add attempts
+	game->attempts += 1;
+	// Check if finishing
+	if (game->attempts == 6) {
+		game->finished = 1;
+	}
 	return 0;
 }
 
