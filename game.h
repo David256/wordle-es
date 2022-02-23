@@ -13,6 +13,7 @@ typedef struct {
 	char matrix[6][5];
 	Status statuses[6][5];
 	int attempts;
+	int finished;
 } Game;
 
 /**
