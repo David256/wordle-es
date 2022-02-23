@@ -37,9 +37,18 @@ Status check_word_at(Game* game, char word[5], int index) {
 }
 
 int play_game(Game* game, char word[5]) {
+	int good_ones = 0;
 	for (int i = 0; i < 5; i++) {
-		game->statuses[game->attempts][i] = check_word_at(game, word, i);
+		Status status = check_word_at(game, word, i);
+		if (status == RIGHT) {
+			good_ones += 1;
+		}
+		game->statuses[game->attempts][i] = status;
 		game->matrix[game->attempts][i] = word[i];
+	}
+	if (good_ones == 5) {
+		game->finished = 1;
+		return 1;
 	}
 	// Add attempts
 	game->attempts += 1;
