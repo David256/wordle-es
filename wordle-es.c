@@ -70,6 +70,11 @@ int main() {
 			continue;
 		}
 
+		if (check_word_exists(buffer, lines, num_lines) == 0) {
+			printf("This word does not exist.\n");
+			continue;
+		}
+
 		int is_good = play_game(game, buffer);
 
 		printf("\n");

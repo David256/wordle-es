@@ -32,6 +32,11 @@ void set_word_to_game(Game*, char[5]);
 Status check_word_at(Game*, char[5], int);
 
 /**
+ * Returns 1 if the word exists, 0 otherwise.
+ */
+int check_word_exists(char[5], char (*)[5], int);
+
+/**
  * Returns 1 if the attempt is right, 0 otherwise.
  */
 int play_game(Game*, char[5]);
