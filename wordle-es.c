@@ -93,6 +93,12 @@ int main() {
 			printf("Finished attempts.\n");
 		}
 	}
+	printf("\n");
+	printf("The word was \"");
+	for (int i = 0; i < 5; i++) {
+		printf("%c", game->word[i]);
+	}
+	printf("\"\n\n");
 		
 	return 0;
 }
